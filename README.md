@@ -74,19 +74,17 @@ Cada pasta representa uma aula, contendo materiais, exemplos de código e anota�
   <details>
     <summary>atividades</summary>
 
-    - Instalar o Python e configurar o ambiente corretamente.  
-    - Rodar o interpretador interativo (REPL) e testar:  
-      ```python
-      print("Primeiro teste no REPL!")
-      2 + 2
-      ```  
-    - Criar um arquivo `primeiro.py` com o código:  
-      ```python
-      print("Olá, Python!")
-      ```  
-    - Rodar o script no terminal com:  
-      ```bash
-      python primeiro.py
-      ```  
-    - Explicar a diferença entre **executar no REPL** e rodar um **script `.py`**.  
+    1. Mostre na tela a frase:  
+       ```python
+       print("Olá, mundo!")
+       ```
+    2. Crie uma variável chamada **nome** e armazene seu nome. Mostre com `print(nome)`.  
+    3. Some dois números fixos (ex: `7 + 3`) e mostre o resultado.  
+    4. Use `input()` para perguntar o nome do usuário e mostre uma saudação.  
+    5. Altere o valor de uma variável após imprimir e mostre o novo valor.  
+    6. Crie uma variável **curso** com o nome de um curso e mostre:  
+       `"Você está aprendendo <curso>"`.  
+    7. Crie duas variáveis com notas e calcule a soma.  
+    8. Crie três variáveis: **nome, idade e cidade**, e exiba tudo numa frase só.  
+
   </details>
