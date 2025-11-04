@@ -298,3 +298,22 @@ Cada pasta representa uma aula, contendo materiais, exemplos de código e anota�
        Use **loops** e **listas** para filtrar e exibir.  
 
   </details>
+- [**3a-aula-funções-classes-python**](https://github.com/Gabriel0Ramos0/AulasPython/tree/main/3a-aula) *(funções, métodos e classes em Python)*  
+  <details>
+    <summary>atividades</summary>
+
+    1. ➕ Crie uma função que some dois números.
+    2. ➖ Crie uma função que diminua dois números.
+    3. ✖ Crie uma função que multiplique dois números. 
+    4. ➗ Crie uma função que divida dois números.
+    5. 🔢 Crie uma função que some um número indeterminado de números.
+    6. ⚙️ Crie uma classe com 4 métodos estáticos, um para cada operação matemática básica (+, -, *, /).
+    7. 🧮 Crie uma classe com uma variável global de valor fixo **10** e métodos **dobra_valor()** e **triplica_valor()**, que retornem o dobro e o triplo do valor, respectivamente. 
+    8. 🎓 Crie uma classe Aluno com os atributos: **nome**, **cpf**, **idade**, **telefone**, **email=None**, **ativo=True**. 
+    - O método __init__ deve controlar os campos obrigatórios e opcionais, e um método deve exibir as informações formatadas como:
+    ```
+    Aluno: {nome} - {cpf} com idade {idade};
+    Contato: {telefone} - {email}; Ativo: {ativo}
+    ```
+
+  </details>
