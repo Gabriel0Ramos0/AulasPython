@@ -300,6 +300,228 @@ Cada pasta representa uma aula, contendo materiais, exemplos de código e anota�
   </details>
 - [**3a-aula-funções-classes-python**](https://github.com/Gabriel0Ramos0/AulasPython/tree/main/3a-aula) *(funções, métodos e classes em Python)*  
   <details>
+    <summary>funções e classes</summary>
+
+    ### 🔧 Funções
+    - 🏗️ Classes
+    - 🗄️ Introdução a objetos
+    - 🧰 Métodos
+    - 🔧 Funções
+
+    ### ✏️ Definição de Função com `pass`
+    ```python
+    def minha_funcao():
+        pass
+    minha_funcao()
+
+    def minha_funcao():
+        print('Executa algo')
+    ```
+
+    ### 🔁 Função com Retorno e Parâmetros
+    ```python
+    def minha_funcao_com_retorno():
+        return 'Retorno da função'
+
+    print(minha_funcao_com_retorno())
+
+    def saudacao(nome, mensagem):
+        return f"{mensagem}, {nome}!"
+
+    print(saudacao("Alice", "Bom dia"))
+
+    def somar(valor1, valor2):
+        return valor1 + valor2
+
+    print(somar(5, 10))
+
+    def saudacao(nome, mensagem="Olá"):
+        return f"{mensagem}, {nome}!"
+    ```
+
+    ### 🎯 Posicional vs Nomeado
+    ```python
+    print(saudacao("Alice"))
+    print(saudacao("Pedro", "Bom dia"))
+
+    def somar(a, b, c):
+        return a + b + c
+
+    print(somar(5, 10, 3))
+    print(somar(b=10, a=5, c=3))
+    ```
+
+    ### 🔢 Parâmetros Variados (`*args`)
+    ```python
+    def soma_tudo(*args):
+        return sum(args)
+
+    print(soma_tudo(1, 2, 3, 4))
+    ```
+
+    ### 📦 Parâmetros Nomeados (`**kwargs`)
+    ```python
+    def imprime_informacoes(**kwargs):
+        for chave, valor in kwargs.items():
+            print(f"{chave}: {valor}")
+
+    imprime_informacoes(nome="Alice", idade=30)
+    ```
+
+    ### 💡 Múltiplos Tipos de Parâmetros
+    ```python
+    def exemplo(valor, *args, **kwargs):
+        print(valor, args, kwargs)
+
+    exemplo('Início', 1, 2, a=3, b=4)
+    ```
+
+    ---
+
+    ## 🏗️ Classes e Objetos
+
+    ### 📐 Definição
+    Classes são a base da **Programação Orientada a Objetos (OOP)**.  
+    Encapsulam dados (*atributos*) e funções (*métodos*).  
+    Uma classe define um "molde" para os objetos, especificando propriedades e comportamentos.
+
+    ```python
+    class Pessoa:
+        pass
+
+    p = Pessoa()
+    ```
+
+    ### 🔍 Atributos e 🧰 Métodos
+    ```python
+    class Usuario:
+        nome = None
+        ativo = True
+
+    p = Usuario()
+    print(p.nome, p.ativo)
+    ```
+
+    ### 🔄 `__init__` : Construtor e Atributos
+    ```python
+    class Pessoa:
+        def __init__(self, nome, idade):
+            self.nome = nome
+            self.idade = idade
+
+    p = Pessoa("João", 30)
+    print(p.nome, p.idade)
+    ```
+
+    ### ✍️ `__str__`, ✅ `__eq__` e 🗑️ `__del__`
+    ```python
+    class Livro:
+        def __init__(self, titulo, autor):
+            self.titulo = titulo
+            self.autor = autor
+
+        def __str__(self):
+            return f"{self.titulo} - {self.autor}"
+
+    print(Livro("Python", "Guido"))
+    ```
+
+    ```python
+    class Livro:
+        def __init__(self, titulo):
+            self.titulo = titulo
+
+        def __eq__(self, outro):
+            return self.titulo == outro.titulo
+
+    l1 = Livro("Python")
+    l2 = Livro("Python")
+    print(l1 == l2)
+    ```
+
+    ```python
+    class MinhaClasse:
+        def __del__(self):
+            print("Objeto deletado")
+
+    obj = MinhaClasse()
+    del obj
+    ```
+
+    ### 🧠 Método de Instância
+    ```python
+    class Pessoa:
+        def __init__(self, nome, idade):
+            self.nome = nome
+            self.idade = idade
+
+        def maior_de_idade(self):
+            return self.idade >= 18
+
+    p = Pessoa("Maria", 17)
+    print(p.maior_de_idade())
+    ```
+
+    ### 🏛️ Método de Classe (`@classmethod`)
+    ```python
+    class Exemplo:
+        contador = 0
+
+        def __init__(self):
+            Exemplo.contador += 1
+
+        @classmethod
+        def total_instancias(cls):
+            return cls.contador
+
+    obj1 = Exemplo()
+    obj2 = Exemplo()
+    obj3 = Exemplo()
+
+    print(Exemplo.total_instancias())
+    ```
+
+    ### 🏦 Caso de Uso – Banco
+    ```python
+    class Banco:
+        contas = []
+
+        def __init__(self, titular, saldo_inicial=0):
+            self.titular = titular
+            self.saldo = saldo_inicial
+
+        @classmethod
+        def adicionar_conta(cls, titular, saldo_inicial=0):
+            nova_conta = cls(titular, saldo_inicial)
+            cls.contas.append(nova_conta)
+            return nova_conta
+
+        @classmethod
+        def mostrar_contas(cls):
+            for conta in cls.contas:
+                print(f"Titular: {conta.titular}, Saldo: {conta.saldo}")
+
+    Banco.adicionar_conta("Alice", 1000)
+    Banco.adicionar_conta("Bob", 500)
+    Banco.mostrar_contas()
+    ```
+
+    ### 🧰 Métodos Estáticos (`@staticmethod`)
+    ```python
+    class Matematica:
+        @staticmethod
+        def somar(a, b):
+            return a + b
+
+        @staticmethod
+        def subtrair(a, b):
+            return a - b
+
+    print(Matematica.somar(3, 4))
+    print(Matematica.subtrair(10, 5))
+    ```
+  </details>
+  <details>
     <summary>atividades</summary>
 
     1. ➕ Crie uma função que some dois números.
