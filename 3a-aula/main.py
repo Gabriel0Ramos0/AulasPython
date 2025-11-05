@@ -1,11 +1,8 @@
-n1 = 10
-n2 = 15
-
 # Atividade 1
 def somar(a, b):
     return f'A soma entre {a} e {b} é igual a {a + b}.'
 
-print(somar(n1, n2))
+print(somar(10, 15))
 print("#----#------#-----#----#")
 
 
@@ -13,7 +10,7 @@ print("#----#------#-----#----#")
 def diminuir(a, b):
     return f'A subtração entre {a} e {b} é igual a {a - b}.'
 
-print(diminuir(n1, n2))
+print(diminuir(10, 15))
 print("#----#------#-----#----#")
 
 
@@ -21,7 +18,7 @@ print("#----#------#-----#----#")
 def multiplicar(a, b):
     return f'A multiplicação entre {a} e {b} é igual a {a * b}.'
 
-print(multiplicar(n1, n2))
+print(multiplicar(10, 15))
 print("#----#------#-----#----#")
 
 
@@ -29,7 +26,7 @@ print("#----#------#-----#----#")
 def dividir(a, b):
     return f'A divisão entre {a} e {b} é igual a {a / b}.'
 
-print(dividir(n1, n2))
+print(dividir(10, 15))
 print("#----#------#-----#----#")
 
 
