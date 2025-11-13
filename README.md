@@ -539,3 +539,160 @@ Cada pasta representa uma aula, contendo materiais, exemplos de código e anota�
     ```
 
   </details>
+- [**4a-aula-orientacao-a-objetos**](https://github.com/Gabriel0Ramos0/AulasPython/tree/main/4a-aula) *(Herança, Classes Abstratas, Polimorfismo e Type Hints)*  
+
+    <details>
+    <summary>Heranças e Classes</summary>
+
+    ### 🧬 Conceitos Principais
+    - **Herança:** permite que classes filhas herdem atributos e métodos de uma classe pai.  
+    - **Classes Abstratas (ABC):** modelos base que não podem ser instanciados diretamente.  
+    - **Polimorfismo:** diferentes classes podem implementar o mesmo método de formas distintas.  
+    - **Type Hints:** adicionam tipagem opcional para variáveis, parâmetros e retornos, ajudando na leitura e validação do código.
+
+    ### 🧮 Exemplos de Tipagem
+    ```python
+    valor_inteiro: int = 1
+    valor_float: float = 1.78
+    valor_str: str = "Texto"
+
+    def soma(a: int, b: int) -> int:
+        return a + b
+
+    print(soma(5, 10))
+    ```
+
+    ### 🔢 Múltiplos Tipos e Tipos Compostos
+    ```python
+    from typing import List, Tuple, Callable
+
+    def soma(a: int | float, b: int | float) -> float:
+        return float(a + b)
+
+    print(soma(1, 2))
+    print(soma(1.55, 2.43))
+
+    def processa_numeros(numeros: List[int]) -> Tuple[int, int]:
+        return min(numeros), max(numeros)
+
+    print(processa_numeros([1, 2, 3, 4]))
+
+    def executar(a: int, b: int, op: Callable[[int, int], int]) -> int:
+        return op(a, b)
+
+    def multiplicar(x: int, y: int) -> int:
+        return x * y
+
+    print(executar(2, 3, multiplicar))
+    ```
+
+    ### 🧬 Herança
+    ```python
+    class Veiculo:
+        def __init__(self, descricao):
+            self.descricao = descricao
+
+        def __str__(self):
+            return self.descricao
+
+    class Carro(Veiculo):
+        def __str__(self):
+            return f"Carro: {self.descricao}"
+
+    class Moto(Veiculo):
+        def __init__(self, descricao):
+            super().__init__(f"Moto: {descricao}")
+
+    print(Carro("Gol"))
+    print(Moto("Biz 125"))
+    ```
+
+    ### 🔒 Classe Abstrata
+    ```python
+    from abc import ABC, abstractmethod
+
+    class Animal(ABC):
+        def __init__(self, nome):
+            self.nome = nome
+
+        @abstractmethod
+        def fazer_som(self):
+            pass
+
+    class Cachorro(Animal):
+        def fazer_som(self):
+            print(f"{self.nome} está latindo.")
+
+    class Gato(Animal):
+        def fazer_som(self):
+            print(f"{self.nome} está miando.")
+    ```
+
+    ### 🧪 Polimorfismo
+    ```python
+    from typing import List
+
+    animais: List[Animal] = [Cachorro("Fred"), Gato("Mike")]
+
+    for animal in animais:
+        animal.fazer_som()
+    ```
+
+    ### 🖋️ Atividade Final
+    ```python
+    def emitir_som(animal: Animal):
+        if not isinstance(animal, Animal):
+            print(f"O objeto fornecido '{animal}' não é uma instância de Animal")
+            return
+        animal.fazer_som()
+
+    emitir_som('Animal fake')
+
+    animais: List[Animal] = [Cachorro("Fred"), Cachorro("Bob"), Gato("Mike")]
+
+    for a in animais:
+        emitir_som(a)
+    ```
+    </details>
+    <details>
+    <summary>atividades</summary>
+
+    1. ➕ Soma de Inteiros
+    Escreva uma função que aceite dois parâmetros do tipo `int` e retorne a **adição** deles.  
+    Use *type hints* para especificar os tipos dos parâmetros e do retorno.
+
+    2. ➖ Subtração de Inteiros
+    Escreva uma função que aceite dois parâmetros do tipo `int` e retorne a **subtração** deles.  
+    Use *type hints* para especificar os tipos dos parâmetros e do retorno.
+
+    3. ✖ Multiplicação de Inteiros
+    Escreva uma função que aceite dois parâmetros do tipo `int` e retorne a **multiplicação** deles.  
+    Use *type hints* para especificar os tipos dos parâmetros e do retorno.
+
+    4. ➗ Divisão de Inteiros
+    Escreva uma função que aceite dois parâmetros do tipo `int` e retorne a **divisão** deles.  
+    Use *type hints* para especificar os tipos dos parâmetros e do retorno.
+
+    5. 🧮 Função Operadora
+    Crie uma função que aceite **três parâmetros**: dois números inteiros e uma **função** que realiza uma operação sobre esses dois números.  
+    Use *type hints* para especificar que o terceiro parâmetro é uma função que aceita dois inteiros e retorna um inteiro.  
+    Chame essa função **4 vezes**, passando as funções criadas anteriormente (adição, subtração, multiplicação e divisão).
+
+    6. 🔢 Soma Flexível
+    Escreva uma função que receba dois números que podem ser do tipo `int` ou `float` e retorne a **soma** deles como `float`.  
+    Use *type hints* para especificar os tipos dos parâmetros e do retorno.
+
+    7. 🎸 Instrumentos Musicais (Classe Abstrata)
+    Implemente uma classe abstrata `InstrumentoMusical` com um método abstrato `tocar`.  
+    Crie cinco subclasses: `Violao`, `Bateria`, `Guitarra`, `Baixo` e `Piano`.  
+    Cada uma deve implementar o método `tocar` de forma diferente.  
+    Utilize *type hints* para definir os tipos de atributos e métodos.  
+    Crie uma lista com **10 instrumentos musicais diferentes** e execute o método `tocar()` de cada um.
+
+    8. 🚗 Veículos em Movimento (Classe Abstrata)
+    Implemente uma classe abstrata `Veiculo` com um método abstrato `mover`.  
+    Crie cinco subclasses: `Carro`, `Moto`, `Bicicleta`, `Aviao` e `Barco`, cada uma implementando `mover()` de forma diferente.  
+    Utilize *type hints* para definir os tipos de atributos e métodos.  
+    Crie uma lista com **10 veículos diferentes** e execute o método `mover()` de cada um.
+    
+    </details>
