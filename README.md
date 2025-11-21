@@ -696,3 +696,101 @@ Cada pasta representa uma aula, contendo materiais, exemplos de código e anota�
     Crie uma lista com **10 veículos diferentes** e execute o método `mover()` de cada um.
     
     </details>
+- [**5a-aula-arquivos-excecoes-mypy**](https://github.com/Gabriel0Ramos0/AulasPython/tree/main/5a-aula) *(Manipulação de Arquivos, Tratamento de Exceções e Tipagem Estática com Mypy)*  
+
+    <details>
+    <summary>Manipulação de Arquivos</summary>
+    
+    Modos principais: 
+    - **x** (criar), 
+    - **r** (ler), 
+    - **w** (escrever),
+    - **a** (adicionar**).  
+    
+    Permite armazenar dados, criar logs e trabalhar com `.txt`, `.json`, `.csv`.
+
+    ### Exemplos
+    ```python
+    open('file.txt', 'x')      # criar
+    open('file.txt', 'r')      # ler
+    open('file.txt', 'w')      # escrever (sobrescreve)
+    open('file.txt', 'a')      # adicionar
+    ```
+
+    Leitura:
+    ```python
+    arquivo.read()
+    arquivo.readlines()
+    arquivo.readline()
+    ```
+
+    Boas práticas:
+    - Usar `try/finally`
+    - Preferir `with open()` para fechar automático
+
+
+    ## 🧰 Bibliotecas Externas
+    Instalação via `pip`. Exemplos:
+    - **requests**, **numpy**, **pandas**, **matplotlib**
+    - **fastapi**, **django**, **flask**
+    - **mypy** (checagem de tipos)
+    - **const-utils** (constantes)
+
+
+    ## 🧪 Ambiente Virtual (venv)
+    Evita conflitos entre projetos.
+
+    Criar e ativar:
+    ```bash
+    py -m venv .venv
+    .\.venv\Scriptsctivate
+    ```
+
+    Instalar e registrar dependências:
+    ```bash
+    pip install pacote
+    pip freeze > requirements.txt
+    pip install -r requirements.txt
+    ```
+
+
+    ## 🧱 Exemplos
+    **const-utils**
+    ```python
+    class Estado(BaseConstClass):
+        SC = 'Santa Catarina'
+    print(Estado.as_dict())
+    ```
+
+    **mypy**
+    ```python
+    def soma(a: int, b: int) -> int:
+        return a + b
+    ```
+    ```bash
+    mypy app.py
+    ```
+
+    </details>
+    <details>
+    <summary>atividades</summary>
+    
+    1. 📂 **Criar e ler arquivo de nomes**  
+   - Crie um programa que gere o arquivo `dados.txt`.  
+   - Leia nomes digitados pelo usuário e escreva no arquivo.  
+   - Depois, abra novamente usando `with open()` e exiba todo o conteúdo.
+
+    2. 📁 **Somar números de um arquivo**  
+    - Leia o arquivo `numeros.txt`, onde cada linha contém um número.  
+    - Some todos os valores e mostre o resultado.  
+    - Trate exceções para:  
+        - arquivo inexistente  
+        - erro de leitura
+
+    3. ⏬ **Teste com mypy**  
+    - Instale o `mypy`.  
+    - Crie uma função que receba dois inteiros e retorne a soma.  
+    - Simule um erro passando uma string no lugar de um número.  
+    - Execute `mypy` e observe o resultado.
+
+    </details>
